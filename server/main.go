@@ -19,12 +19,12 @@ func buildBindAddr(j *JSONServer) string {
 	if j.Port != 0 {
 		port = j.Port
 	}
-	return fmt.Sprintf("%s:%d", j.host, port)
+	return fmt.Sprintf("%s:%d", j.Host, port)
 }
 
 func buildRoutes(j *JSONServer) *http.ServeMux {
 	mux := http.NewServeMux()
-	mux.HandleFunc("GET /", j.getHeath)
+	mux.HandleFunc("GET /", j.getHealth)
 	mux.HandleFunc("POST /metrics", j.postMetrics)
 	mux.HandleFunc("POST /metric-payload-options", j.postMetricPayloadOptions)
 	mux.HandleFunc("POST /query", j.postQuery)
