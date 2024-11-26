@@ -1,0 +1,2 @@
+PACKAGE = grafana-json
+LIB_ONLY = true
