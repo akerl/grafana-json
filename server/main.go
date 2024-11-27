@@ -42,6 +42,9 @@ func (j *JSONServer) Start() {
 
 func (j *JSONServer) getHealth(w http.ResponseWriter, r *http.Request) {
 	logger.DebugMsgf("received request to %s", r.URL.Path)
+	w.Header().Set("Content-Type", "text/plain")
+	w.WriteHeader(http.StatusOK)
+	_, _ = w.Write([]byte("PONG"))
 }
 
 func (j *JSONServer) postMetrics(w http.ResponseWriter, r *http.Request) {
